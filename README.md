@@ -1,16 +1,14 @@
-# Systemic Crisis Prediction in Africa (1860–2014)
+# Systemic, Banking, and Inflation Crises in Africa – ML Modeling
 
-## 📊 Overview
-
-This project explores the **"Systemic Crisis, Banking Crisis, Inflation Crisis in Africa"** dataset sourced from Kaggle. The primary objective is to build a **Machine Learning classification model** to **predict the likelihood of a systemic financial crisis** using macroeconomic indicators such as inflation rates, among others.
+This project explores the **"Systemic Crisis, Banking Crisis, Inflation Crisis in Africa"** dataset sourced from Kaggle. The primary objective is to build a **Machine Learning classification model** to **predict the likelihood of a systemic financial crisis** using macroeconomic indicators such as inflation rates, among others. The objective is to identify which algorithm performs best in classifying crisis occurrences and handling class imbalance using SMOTE.
 
 The dataset spans **13 African countries** from **1860 to 2014**, covering events related to:
 
-* Banking Crisis
-* Debt Crisis
-* Financial Crisis
-* Inflation Crisis
-* Systemic Crisis
+* Banking Crises
+* Debt Crises
+* Financial Crises
+* Inflation Crises
+* Systemic Crises
 
 ## 🌍 Countries Included
 
@@ -30,70 +28,93 @@ The dataset spans **13 African countries** from **1860 to 2014**, covering event
 
 ---
 
-## 🎯 Objective
+## Project Steps
 
-To **predict the emergence of a systemic crisis** using Machine Learning based on the historical crisis indicators in the dataset.
+### 1. **Data Loading and Preprocessing**
 
----
+* The dataset was loaded using `pandas`.
+* Exploratory analysis was done to understand the structure and content of the data.
+* Irrelevant or redundant features were removed, and necessary columns were selected.
+* Null values were handled appropriately.
+* Label encoding or one-hot encoding was used for categorical variables (where needed).
+* Features and target variables were separated.
 
-## 📌 Project Steps
+### 2. **Train-Test Split**
 
-1. **Import Data** and perform initial inspection
-2. **Data Exploration**:
+* The dataset was split into training and testing sets using `train_test_split()` from `sklearn.model_selection`.
 
-   * Display general info
-   * Generate a Pandas Profiling Report for insights
-3. **Data Cleaning**:
+### 3. **Model Building – Baseline Evaluation**
 
-   * Handle missing or corrupted values
-   * Remove duplicates
-   * Detect and handle outliers
-4. **Feature Engineering**:
+* Three classification algorithms were trained and evaluated:
 
-   * Encode categorical features
-   * Select target variable and feature set
-5. **Modeling**:
+  * **Decision Tree Classifier**
+  * **Random Forest Classifier**
+  * **K-Nearest Neighbors (KNN)**
+* Each model’s accuracy and classification report were generated to compare performance.
+* The aim was to determine the best-performing model before addressing the class imbalance.
 
-   * Split data into training and test sets
-   * Choose and train a suitable classification algorithm
-6. **Evaluation**:
+### 4. **Class Imbalance Handling – SMOTE**
 
-   * Use relevant metrics (Accuracy, Precision, Recall, F1 Score, ROC-AUC, etc.)
-   * Discuss and iterate on model improvement strategies
+* **SMOTE (Synthetic Minority Over-sampling Technique)** was applied using `imblearn.over_sampling.SMOTE` to balance the target class distribution.
+* After SMOTE, the data was re-split and the models were retrained.
 
----
+### 5. **Model Evaluation After SMOTE**
 
-## 🛠️ Tech Stack
-
-* **Python**
-* **Pandas**
-* **Pandas Profiling**
-* **Scikit-learn**
-* **Matplotlib / Seaborn**
-* **Jupyter Notebook**
+* Each of the previously trained models was retrained on the balanced dataset.
+* Evaluation metrics (Accuracy, Precision, Recall, F1-score) were used to assess improvements.
+* Model performance was compared before and after SMOTE.
 
 ---
 
-## 📈 Evaluation Criteria
+## ⚙️ Technologies Used
 
-Each component of the workflow is rated from **1 to 5**, based on:
+* Python
+* Jupyter Notebook
+* pandas, numpy
+* scikit-learn
+* imbalanced-learn (for SMOTE)
+* matplotlib & seaborn (for visualization)
 
-* Completeness of data preparation
-* Quality of exploratory analysis
-* Justification of model choice
-* Model performance and metric interpretation
-* Critical thinking around improving results
+---
 
+## 📊 Key Insights
+
+* Class imbalance significantly impacted model performance.
+* SMOTE improved classification metrics, especially for minority classes.
+* Among the tested algorithms,  `Random Forest Model` performed best post-balancing.
+
+\* *(Replace with the actual best model based on your final results.)*
+
+---
+
+## 📁 Files
+
+* `Systemic_Crisis,_Banking_Crisis,_inflation_Crisis_In_Africa.ipynb` – Main analysis notebook
+
+---
+
+## 🚀 How to Run
+
+1. Clone this repository
+2. Install requirements:
+
+   ```bash
+   pip install -r requirements.txt
+   ```
+3. Run the Jupyter Notebook:
+
+   ```bash
+   jupyter notebook
+   ```
 ---
 
 ## 🤝 Collaboration & Discussion
 
 I encourage all contributors to **discuss alternative strategies** to enhance model performance and gain deeper insights into financial crises in African economies.
 
----
-
-## 📬 Contributing
-
 Contributions, questions, and suggestions are welcome! Please open an issue or submit a pull request.
 
 ---
+
+
+
