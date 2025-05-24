@@ -1,4 +1,4 @@
-# 🧠 Systemic Crisis Prediction in Africa (1860–2014)
+# Systemic Crisis Prediction in Africa (1860–2014)
 
 ## 📊 Overview
 
@@ -27,8 +27,6 @@ The dataset spans **13 African countries** from **1860 to 2014**, covering event
 * Tunisia
 * Zambia
 * Zimbabwe
-
-## 📁 Dataset
 
 ---
 
